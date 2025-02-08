@@ -5,9 +5,9 @@ import com.walrusone.skywarsreloaded.SkyWarsReloaded;
 import com.walrusone.skywarsreloaded.enums.ChestType;
 import com.walrusone.skywarsreloaded.enums.LeaderType;
 import com.walrusone.skywarsreloaded.game.GameMap;
-import com.walrusone.skywarsreloaded.managers.GameMapManager;
 import com.walrusone.skywarsreloaded.menus.gameoptions.objects.GameKit;
 import com.walrusone.skywarsreloaded.utilities.Util;
+import java.util.Collections;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -47,8 +47,7 @@ public class SWTabCompleter implements TabCompleter {
                     possibilities = Lists.newArrayList("player", "spec", "look", "lobby", "deathmatch");
                 }
             }
-        }
-        else if (command.getName().equalsIgnoreCase("swkit")) {
+        } else if (command.getName().equalsIgnoreCase("swkit")) {
             if (args.length == 1) {
                 for (BaseCmd cmd : KitCmdManager.getCommands()) {
                     if (Util.get().hasPerm(cmd.getType(), commandSender, cmd.cmdName)) {
@@ -72,9 +71,7 @@ public class SWTabCompleter implements TabCompleter {
                     possibilities = Lists.newArrayList("locked", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17");
                 }
             }
-        }
-        else if (command.getName().equalsIgnoreCase("skywars")) {
-
+        } else if (command.getName().equalsIgnoreCase("skywars")) {
             if (args.length == 1) {
                 for (BaseCmd cmd : MainCmdManager.getCommands()) {
                     if (Util.get().hasPerm(cmd.getType(), commandSender, cmd.cmdName)) {
@@ -112,13 +109,12 @@ public class SWTabCompleter implements TabCompleter {
                     possibilities = Lists.newArrayList("set", "add", "remove");
                 }
             }
-        }
-        else {
-            return null;
+        } else {
+            return Collections.emptyList();
         }
 
         String currentUserInput = args[args.length - 1].toLowerCase();
-        if (currentUserInput.equals("")) {
+        if (currentUserInput.isEmpty()) {
             responses = possibilities;
         } else {
             for (String possibility : possibilities) {

@@ -63,11 +63,11 @@ public class JoinSingleMenu {
                     }
 
                     MatchState state;
-                    int alivePlayers = 0;
-                    int maxPlayers = 0;
-                    String displayName = "";
-                    int teamsize = 1;
-                    String name = "";
+                    int alivePlayers;
+                    int maxPlayers;
+                    String displayName;
+                    int teamSize;
+                    String name;
                     
                     GameMap gMap = null;
                     SWRServer server = null;
@@ -77,7 +77,7 @@ public class JoinSingleMenu {
                         alivePlayers = gMap.getAlivePlayers().size();
                         maxPlayers = gMap.getMaxPlayers();
                         displayName = gMap.getDisplayName();
-                        teamsize = gMap.getTeamSize();
+                        teamSize = gMap.getTeamSize();
                         name = gMap.getName();
                     }
                     else {
@@ -86,7 +86,7 @@ public class JoinSingleMenu {
                         alivePlayers = server.getPlayerCount();
                         maxPlayers = server.getMaxPlayers();
                         displayName = server.getDisplayName();
-                        teamsize = server.getTeamSize();
+                        teamSize = server.getTeamSize();
                         name = server.getServerName();
                     }
 
@@ -100,7 +100,7 @@ public class JoinSingleMenu {
                                         a.replace("{playercount}", "" + alivePlayers)
                                                 .replace("{maxplayers}", "" + maxPlayers)
                                                 .replace("{arena}", displayName)
-                                                .replace("{teamsize}", teamsize + "")
+                                                .replace("{teamsize}", teamSize + "")
                                                 .replace("{aliveplayers}", alivePlayers + "")
                                                 .replace("{name}", name)
                                 ));
@@ -111,7 +111,7 @@ public class JoinSingleMenu {
                                         a.replace("{playercount}", "" + alivePlayers)
                                                 .replace("{maxplayers}", "" + maxPlayers)
                                                 .replace("{arena}", displayName)
-                                                .replace("{teamsize}", teamsize + "")
+                                                .replace("{teamsize}", teamSize + "")
                                                 .replace("{aliveplayers}", alivePlayers + "")
                                                 .replace("{name}", name)
                                 ));
@@ -122,14 +122,14 @@ public class JoinSingleMenu {
                                         a.replace("{playercount}", "" + alivePlayers)
                                                 .replace("{maxplayers}", "" + maxPlayers)
                                                 .replace("{arena}", displayName)
-                                                .replace("{teamsize}", teamsize + "")
+                                                .replace("{teamsize}", teamSize + "")
                                                 .replace("{aliveplayers}", alivePlayers + "")
                                                 .replace("{name}", name)
                                 ));
                             }
                         }
 
-                        double xy = ((double) (alivePlayers / maxPlayers));
+                        double xy = ((double) alivePlayers / maxPlayers);
 
                         ItemStack gameIcon = SkyWarsReloaded.getNMS().getItemStack(SkyWarsReloaded.getIM().getItem("blockwaiting"), loreList, ChatColor.translateAlternateColorCodes('&', displayName));
 
@@ -159,7 +159,7 @@ public class JoinSingleMenu {
                                     .setVariable("playercount", "" + alivePlayers)
                                             .setVariable("maxplayers", "" + maxPlayers)
                                             .setVariable("arena", displayName)
-                                            .setVariable("teamsize", teamsize + "")
+                                            .setVariable("teamsize", teamSize + "")
                                             .setVariable("aliveplayers", alivePlayers + "")
                                             .setVariable("name", name)
                                             .format("menu.join_menu.item_title.playing"))
@@ -170,7 +170,7 @@ public class JoinSingleMenu {
                                             .setVariable("playercount", "" + alivePlayers)
                                             .setVariable("maxplayers", "" + maxPlayers)
                                             .setVariable("arena", displayName)
-                                            .setVariable("teamsize", teamsize + "")
+                                            .setVariable("teamsize", teamSize + "")
                                             .setVariable("aliveplayers", alivePlayers + "")
                                             .setVariable("name", name)
                                             .format("menu.join_menu.item_title.ending"))
@@ -182,7 +182,7 @@ public class JoinSingleMenu {
                                             .setVariable("playercount", "" + alivePlayers)
                                             .setVariable("maxplayers", "" + maxPlayers)
                                             .setVariable("arena", displayName)
-                                            .setVariable("teamsize", teamsize + "")
+                                            .setVariable("teamsize", teamSize + "")
                                             .setVariable("aliveplayers", alivePlayers + "")
                                             .setVariable("name", name)
                                             .format("menu.join_menu.item_title.waiting-start"))
@@ -194,7 +194,7 @@ public class JoinSingleMenu {
                                                 .setVariable("playercount", "" + alivePlayers)
                                                 .setVariable("maxplayers", "" + maxPlayers)
                                                 .setVariable("arena", displayName)
-                                                .setVariable("teamsize", teamsize + "")
+                                                .setVariable("teamsize", teamSize + "")
                                                 .setVariable("aliveplayers", alivePlayers + "")
                                                 .setVariable("name", name)
                                                 .format("menu.join_menu.item_title.waiting-start"))
@@ -207,7 +207,7 @@ public class JoinSingleMenu {
                                                 .setVariable("playercount", "" + alivePlayers)
                                                 .setVariable("maxplayers", "" + maxPlayers)
                                                 .setVariable("arena", displayName)
-                                                .setVariable("teamsize", teamsize + "")
+                                                .setVariable("teamsize", teamSize + "")
                                                 .setVariable("aliveplayers", alivePlayers + "")
                                                 .setVariable("name", name)
                                                 .format("menu.join_menu.item_title.waiting-start"))
@@ -220,7 +220,7 @@ public class JoinSingleMenu {
                                                 .setVariable("playercount", "" + alivePlayers)
                                                 .setVariable("maxplayers", "" + maxPlayers)
                                                 .setVariable("arena", displayName)
-                                                .setVariable("teamsize", teamsize + "")
+                                                .setVariable("teamsize", teamSize + "")
                                                 .setVariable("aliveplayers", alivePlayers + "")
                                                 .setVariable("name", name)
                                                 .format("menu.join_menu.item_title.waiting-start"))
